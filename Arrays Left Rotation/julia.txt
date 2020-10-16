@@ -1,0 +1,14 @@
+function MinimumUnique(arr,d)
+    n = length(arr)
+    a = zeros(Int,n) 
+    for i=1:n
+      res = (i+d-1)%n
+      println(res)
+      a[i] = arr[res+1]
+    end
+return a 
+end
+arr =  [1,2,3,4,5]
+d=4
+#Output: ["e","l","l"]
+println("Total pairs   " , MinimumUnique(arr,d))

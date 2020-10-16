@@ -1,0 +1,32 @@
+Given a 32-bit signed integer, reverse digits of an integer.
+
+Example 1:
+Input: 123
+Output: 321
+
+Example 2:
+
+Input: -123
+Output: -321
+
+
+###############################################
+class Solution:
+    def reverse(self, x: int) -> int:
+        final=0
+        Number_of_digits = len(str(abs(x)))
+        max_int = (2**31)- 1  
+        if abs(x) > max_int:  return 0  
+        if x<0:
+            x=x*-1
+            operator = -1
+        else:
+            operator = 1
+        for i in range(Number_of_digits):
+            temp = int(x%10) #5
+            x=x/10
+            final += temp*(10**(Number_of_digits-1-i))
+        final = final*operator
+        if abs(final) > max_int:
+            return 0
+        return final

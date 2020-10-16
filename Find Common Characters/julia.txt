@@ -1,0 +1,17 @@
+function pair_sum(arr)
+check = arr[1]
+for word in arr
+    newcheck = ""
+    for c in word
+        if c in check
+            newcheck =  newcheck * c
+            replace(check, c => "")
+        end
+    end
+    check = newcheck
+    
+end
+return check
+end
+arr = ["bella","label","roller"]
+println("Total pairs   " , pair_sum(arr))

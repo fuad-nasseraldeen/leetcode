@@ -1,0 +1,27 @@
+function longestCommonPrefix(arr)
+    temp = " "
+    minn = length(arr[1])
+    for i in arr
+        if minn>length(i)
+            minn = length(i)
+        end
+    end
+    println(minn)
+    for letter =1:minn#flow
+        current = arr[1][letter]
+        for word=1:length(arr) 
+            if current != arr[word][letter]
+                return temp
+            end
+        end 
+        temp *=current
+    end
+    return temp
+end
+#arr =["dog","racecar","car"] output : ""
+#arr = ["flower" , "flow" , "flight"] output: fl
+#arr = ["aa","aa"] output: aa
+#arr = ["a","a","b"] output: ""
+#arr = ["",""] output: ""
+arr = ["a"]
+println(longestCommonPrefix(arr))

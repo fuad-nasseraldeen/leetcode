@@ -1,0 +1,16 @@
+function isAnagram(arr,s)
+    d = Dict{Char,Int64}()
+    for i in arr
+        d[i] = get(d,i,0)+1
+    end
+    for i in s
+        if !haskey(d,i)
+            return false
+        end
+    end
+    return true
+end
+arr = "cccvbbbbb"
+s = "ccvb"
+
+println(isAnagram(arr,s))

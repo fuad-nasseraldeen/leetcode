@@ -1,0 +1,38 @@
+import static java.lang.System.*; 
+import static java.lang.System.out;
+
+public class test {
+    public static int custom(int[] input ){
+  
+  int i=0;
+  int j=input.length-1;
+  int temp=0;
+ int move=0;
+  
+    while(i<j){
+
+        if ((input[i]%2 == 1) && (input[j]%2 ==0)){
+            temp=input[i];
+            input[i]=input[j];
+            input[j]=temp;
+            j--;
+            move++;
+            i++;
+            
+        }
+         if (input[i]%2==0){
+                 i++;
+            }
+        if (input[j]%2 ==1){
+            j--;
+        }
+    }
+        return move;
+    }
+    
+
+ public static void main(String[] args) {
+      int input[] =  {1,2,3,4,2,2,1,1};
+        System.out.print("Total pairs " + custom(input));
+     }
+ }

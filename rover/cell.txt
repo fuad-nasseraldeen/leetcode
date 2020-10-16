@@ -1,0 +1,28 @@
+public class test{
+    
+
+public static int CountCell(String[] commands,int n ){
+
+    int cell=0;
+    
+    
+    for (int i=0; i<commands.length; i++){
+        if(commands[i]=="right" && (cell%n !=n-1) ){
+            cell++;
+        } else if(commands[i]=="left" && (cell%n !=0 )){
+            cell--;
+        } else if(commands[i]=="up" && (cell/n !=0 )){
+            cell-=n;
+        } else if (commands[i]=="down" && (cell/n !=n-1)){
+            cell +=n;
+        }
+    }
+    return cell;
+   
+}
+ public static void main(String[] args) {
+     String[] commands = {"right","right","right","right","right","down"};
+        System.out.print("Total  " + CountCell(commands,4));
+    }
+
+}

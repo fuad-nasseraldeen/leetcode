@@ -1,0 +1,58 @@
+function anagrams(a , b)
+    
+    res = {}
+  for i = 1, #a do --3times
+    first_string = a[i]
+    second_string = b[i]
+    
+    first_count = count_letters(first_string)
+    second_count = count_letters(second_string)
+    
+    for key, value in pairs(first_count) do
+        if second_count[key] ~= nil then
+            if res[i] ~= nil then
+                res[i] = res[i] + math.min(value, second_count[key])
+            else
+                 res[i] = math.min(value, second_count[key])
+            end
+        elseif res[i] == nil then
+            res[i] = 0
+        end
+    end
+    end
+    t = table.concat(res,",")
+    print(t)
+    return res
+end
+
+function count_letters(str)
+    count = {}
+    for i = 1, #str do
+        c = str:sub(i,i)
+        if count[c] ~= nil then
+            count[c] = count[c] + 1
+        else
+            count[c] = 1
+        end
+    end
+    return count
+end
+
+a = {"tea" , "eat" ,"simple"}
+b = {"tea" , "at" , "for"}
+res = anagrams(a,b)
+for i = 1, #res do
+    print(res[i])
+end
+
+
+
+-- res = (count_letters("HELLO"))
+
+-- for key, value in pairs(res) do
+--     print(key, ": ", value)
+-- end
+
+-- att, ta -> ? 2, 3
+-- att : a:1, t:2 ... tat: t:2, a: 1
+-- is their length the same? if not take the minimum

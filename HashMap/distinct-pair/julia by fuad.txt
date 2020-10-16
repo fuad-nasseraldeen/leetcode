@@ -1,0 +1,31 @@
+function sumpairs(input, k)
+d = Dict{Int,Int}()
+output = Tuple{Int,Int}[]
+for i in input
+check = get(d,i,0)
+    if check == 0 
+        d[i] = get(d,i,0) +1
+    else
+        continue
+    end
+end
+println(d)
+for i in keys(d) 
+complement = k - i
+println(complement)
+    if complement in keys(d)
+        if (i,complement) in output || (complement,i) in output
+            continue
+        else
+            d[complement] = get(d,complement,0)-1
+            push!(output,(i,complement))
+        end
+    else
+        continue
+    end
+end
+return Tuple(output)
+end
+input = [1,2,3,6,7,8,9,1]
+k = 10
+println(sumpairs(input, k))

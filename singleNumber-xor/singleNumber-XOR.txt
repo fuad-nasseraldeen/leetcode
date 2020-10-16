@@ -1,0 +1,11 @@
+function singleNumber(nums)
+a = 0
+    for i in nums
+        a = xor(a,i) 
+    end
+return a
+end
+nums=[4,1,2,1,2]
+println(highestValuePalindrome(nums))
+
+

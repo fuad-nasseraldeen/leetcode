@@ -1,0 +1,21 @@
+function alternatingCharacters(arr)
+output = 0
+i=2
+j=1
+while i<=length(arr)
+    if arr[i] == arr[j]
+        output +=1
+        i+=1
+        j+=1
+    else
+        i +=1
+        j+=1
+    end
+end
+
+
+
+return output
+end
+arr = "BABABABABAA"
+println("need to delete " , alternatingCharacters(arr) , " character")

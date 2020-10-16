@@ -1,0 +1,14 @@
+function merge(str1,str2)
+#c1, c2 = collect(str1), collect(str2)
+#(['f', 'u', 'a', 'd'], ['h', 'e', 's', 'e', 'n'])
+result = Char[]
+n=max(length(str1), length(str2))
+for i = 1:n
+    i > length(str1) || push!(result, str1[i])
+    i > length(str2) || push!(result, str2[i])
+end
+println(String(result))
+end
+str1 = "13579135asd"
+str2 = "2468024asdad"
+println(merge(str1,str2))

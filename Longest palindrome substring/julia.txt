@@ -1,0 +1,22 @@
+function longestPalindrome(arr)
+sub = 
+rev = reverse(arr)
+if length(arr) == 1
+    return arr
+end
+n  = length(arr)
+for i =1n
+    for j=i+1n
+        if length(sub) = j-i
+            break
+        end
+        if arr[ij] == reverse(arr[ij])
+            sub = arr[ij]
+            break
+        end
+    end
+end
+return sub
+end
+arr = babad
+println(longestPalindrome(arr))

@@ -1,0 +1,19 @@
+function win(classMates , winners)
+    res = {}
+    for i=1,#winners do
+        for j=1,#classMates do
+            if winners[i] == classMates[j] 
+            then 
+                res[i] = 1 
+                break
+            else 
+                res[i] = 0 
+            end
+        end
+    end
+    a = table.concat(res,",")
+    print(a)
+end
+classMates = {"frank" , "alex" , "soli"}
+winners = {"lora" , "frank" , "sandra" ,"soli","alex"}
+print(win(classMates,winners))

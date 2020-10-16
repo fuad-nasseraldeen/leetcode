@@ -1,0 +1,132 @@
+def hourglassSum(arr):
+    temp = []
+    for i in range(1,5):
+        for j in range(1,5):
+            print(arr[i-1][j-1],arr[i-1][j],arr[i-1][j+1])
+            print("",arr[i][j],"")
+            print(arr[i+1][j-1],arr[i+1][j],arr[i+1][j+1])
+            print("\n")
+            lst = []
+            lst.append(arr[i-1][j-1])
+            lst.append(arr[i-1][j])
+            lst.append(arr[i-1][j+1])
+            lst.append(arr[i][j])
+            lst.append(arr[i+1][j-1])
+            lst.append(arr[i+1][j])
+            lst.append(arr[i+1][j+1])
+            temp.append(sum(lst))
+    return max(temp)
+
+
+
+........................
+
+Homeinterview prepration kit2D Arrays - DS solution | HackerRank
+2D Arrays - DS solution | HackerRank
+YASH PAL July 05, 2020
+
+Function Description
+
+Complete the function hourglassSum in the editor below. It should return an integer, the maximum hourglass sum in the array.
+
+hourglassSum has the following parameter(s):
+
+    arr: an array of integers
+
+Input Format
+
+Each of the 
+ lines of inputs  contains  space-separated integers 
+
+.
+
+Constraints
+
+Output Format
+
+Print the largest (maximum) hourglass sum found in 
+
+.
+
+
+hackerrank 2d arrays ds solution
+
+
+Problem solution in Java programming language.
+
+public class Solution {
+    private static final int _MAX = 6; // size of matrix
+    private static final int _OFFSET = 2; // hourglass width
+    private static int matrix[][] = new int[_MAX][_MAX];
+    private static int maxHourglass = -63; // initialize to lowest possible sum (-9 x 7)
+    
+    /** Given a starting index for an hourglass, sets maxHourglass
+    *   @param i row 
+    *   @param j column 
+    **/
+    private static void hourglass(int i, int j){
+        int tmp = 0; // current hourglass sum
+        
+        // sum top 3 and bottom 3 elements
+        for(int k = j; k <= j + _OFFSET; k++){
+            tmp += matrix[i][k]; 
+            tmp += matrix[i + _OFFSET][k]; 
+        }
+        
+        // sum middle element
+        tmp += matrix[i + 1][j + 1]; 
+        
+        if(maxHourglass < tmp){
+            maxHourglass = tmp;
+        }
+    }
+
+    public static void main(String[] args) {
+        // read inputs
+        Scanner scan = new Scanner(System.in); 
+        for(int i=0; i < _MAX; i++){
+            for(int j=0; j < _MAX; j++){
+                matrix[i][j] = scan.nextInt();
+            }
+        }
+        scan.close();
+        
+        // find maximum hourglass
+        for(int i=0; i < _MAX - _OFFSET; i++){
+            for(int j=0; j < _MAX - _OFFSET; j++){
+                hourglass(i, j);
+            }
+        }
+        
+        // print maximum hourglass
+        System.out.println(maxHourglass);
+    }
+}
+
+
+Problem solution in Python programming language.
+
+def array2D(arr):
+
+    # want to find the maximum hourglass sum
+    # minimum hourglass sum = -9 * 7 = -63
+    maxSum = -63
+    
+    for i in range(4):
+        for j in range(4):
+        
+            # sum of top 3 elements
+            top = sum(arr[i][j:j+3])
+            
+            # sum of the mid element
+            mid = arr[i+1][j+1]
+            
+            # sum of bottom 3 elements
+            bottom = sum(arr[i+2][j:j+3])
+            
+            hourglass = top + mid + bottom
+            
+            if hourglass > maxSum:
+                maxSum = hourglass
+                
+    return maxSum

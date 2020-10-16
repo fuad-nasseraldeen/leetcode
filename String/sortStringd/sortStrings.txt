@@ -1,0 +1,45 @@
+/*sort the array within length the substring and if to letter come in sequence, the first letter in the first
+//Fuad he is the for and he==>He is he the for and fuad.
+import java.io.*; 
+import java.lang.*; 
+import java.lang.String;
+
+
+public class Test {
+    public static String concatAll(String str){
+     String[] pairs ;
+      String delimiter = ".";
+      String delimiter1  = " ";
+      
+      String temp = " ";
+      String s = "";
+       
+             pairs = (str.split("\\."))[0].split(" ");
+             pairs[0] = pairs[0].toLowerCase();
+        
+        
+ 
+        for (int i = 1; i < pairs.length; i++) {
+         for (int j =0; j < pairs.length-i; j++) {
+            // comparing strings
+            if (pairs[j].length()-pairs[j+1].length() > 0) {
+               temp = pairs[j];
+               pairs[j] = pairs[j+1];
+               pairs[j+1] = temp;
+            }
+         }
+        }
+      pairs[0] = pairs[0].substring(0,1).toUpperCase()+pairs[0].substring(1);
+    for(int i=0;i<pairs.length;i++)
+        {
+          s=s +" "+pairs[i] ;
+        }
+        s+= ".";
+        return s;
+    }
+ public static void main(String[] args) {
+    String  str = "Fuad is student of engeneering and he is twenty years old and the";
+ 
+   System.out.print(concatAll(str));
+    }
+}

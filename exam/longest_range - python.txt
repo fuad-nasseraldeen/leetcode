@@ -1,0 +1,13 @@
+def longest_range(arr,lower,upper):
+    res = 0 
+    left , right = lower,lower
+    while right<=upper:
+        while right <=upper and right not in arr:
+          right +=1
+        right -=1
+        if left not in arr and left <=right:
+          res = max(res, right - left +1)
+        left = right +2
+        right +=2
+    return res
+print(longest_range([2,5,7,14,17,19,27,23] , 3 , 20))

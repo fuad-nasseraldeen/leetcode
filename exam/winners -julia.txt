@@ -1,0 +1,30 @@
+# Winners 
+Given two arrays, which contain string (Classmates array is sorted), return integers array which show the absence of each student in 1 and 0 array.
+For example : 
+Winners = "Isam, Nidal, Mohammed" # Not sorted
+Classmates = "Ali , Ahmad, Anan, Mohammed, Nidal" #Sorted
+In this case the method should return array of : [0, 1 ,1]
+Explanation : Isam is a winner, but he is not exist in the classmates so we put zero.
+Nidal and Mohammed is existed, so we put 1.
+Keep in mind that the returned array should ordered by the same order of winners array.
+
+
+
+function win(classMates , winners)
+    d = Dict{String,Int64}()
+    #res = Array{Int64}(undef,length(winners))
+    res = Int.(zeros(length(winners)))
+    for i in classMates
+        d[i] = get(d,i,0) 
+    end
+    for i=1:length(winners)
+        if haskey(d,winners[i])
+            res[i] = 1
+        end
+    end
+    return res
+    println(d)
+end
+classMates = ["ahmed" , "fuad" , "hesen" , "amjed" , "najeh" , "alex" , "fareed" , "sami" , "Jood"]
+winners = ["fuad" , "amjed" , "alex" ,"sobhi" , "fareed"]
+println(win(classMates,winners))

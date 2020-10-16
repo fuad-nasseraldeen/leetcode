@@ -1,0 +1,18 @@
+
+function findAnagrams(arr,s)
+    if length(arr) < length(s)
+        return " "
+    end
+    for i=length(s):length(arr)
+        #println(sort(collect(arr[i:i+2])))
+        a = sort(collect(arr[i-length(s)+1:i]))
+        if a == sort(collect(s))
+            println(arr[i-length(s)+1:i] , "  an index : " , i-length(s)+1)
+        end
+    end
+
+end
+arr = "cbaebabacd"
+s = "abaasdfsdfasc"
+println(findAnagrams(arr,s))
+

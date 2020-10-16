@@ -1,0 +1,37 @@
+# Array anagrams
+Given two arrays, each one is contain strings, return an array of integers which return a number of similar letters.
+For Example: arr1 = ["tea", "eat", "simple"] , arr2 = ["tea", "at", "for"]
+The output should be an array of integers: [3, 2, 0]
+Since "tea", "tea" is identical two each other we return 3 
+"eat", "at" at is anagram of two letters so we return 2
+"simple", "for" is different from each other so we return 0
+# This was the hardest question!
+
+function anagrams(a,b)
+    res = zeros(Int,length(a))
+    for i=1:length(a)
+        a1 = sort(collect(a[i]))
+        b1 = sort(collect(b[i]))
+        for j=1:min(length(a1),length(b1))
+            if length(a1) <= length(b1)
+                if a1[j] in b1
+                    res[i] +=1
+                    j +=1
+                else
+                j+=1
+                end
+            else 
+                if b1[j] in a1
+                    res[i] +=1
+                    j +=1
+                else
+                j+=1
+                end
+            end
+        end
+    end
+    return res
+end
+a = ["teewaa" , "ategh" , "simplefo"]
+b = ["atwe" , "atcgh" , "fore"]
+println(anagrams(a,b))

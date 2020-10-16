@@ -1,0 +1,25 @@
+function pair_sum(nums, target)
+#Given nums = [2, 7, 11, 15], target = 9,
+#Because nums[0] + nums[1] = 2 + 7 = 9,
+d = Dict()
+output = []
+count =0
+for i in nums
+    component = target - i
+    res = Tuple{Int,Int}[]
+    if component in keys(d)
+        push!(res,(i,component))
+        #push!(res,i)
+        d[component] -=1
+        append!(output,res)
+        count +=1
+    else
+        d[i] = 1
+    end
+end
+println(count)
+  return Tuple(output)
+end
+nums = [2, 7, 11, 15 , 4 ,5]
+target = 9
+println("Total pairs   " , pair_sum(nums,target))

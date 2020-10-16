@@ -1,0 +1,21 @@
+#Sequence array -- if number>5 && mod(3,number) == 2
+Given array of integer numbers, which is in mathmatical sequence, return 0 and 1 array if the number exist in that sequence, keep in mind that the sequence starts from 5 and we do not know when it end, and each number is bigger than the latest number by 3.
+This is the array : [5,8,11,14,17,21 ....., n], this sequence is not immutable.
+Which means in this question this array is not changing, it start from 5 and keep increasing by 3 for each element in the array.
+for example: input is [1,7,11,24,27,8], the output should be : [0,0,1,1,1,0]
+Since 1, 7, 8 is not in this sequence we return 0
+11,24,27 is in the sequence [5,8,11,14,17,21 .....,n ] so we return 1 
+
+function Sequence(arr,k)
+    res = zeros(Int,(length(k)))
+    for i=1:length(k)
+        if mod(k[i],3) == 2 && k[i]>=5
+            print(k[i],"   ")
+            res[i] = 1
+        end
+    end
+    return res
+end
+arr = [5,8,11,14,17,20,23,26,29,32,35,38,41,44,47,50,53,56,59,62,65,68,71,74,77,80,83,86,89,92,96,99]
+k = [2,3,4,5,6,7,8,23,74,92,26,28,11,80]
+println(Sequence(arr,k))

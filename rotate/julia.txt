@@ -1,0 +1,18 @@
+function rotate(nums , k)
+    a = Array{Int64}(undef,length(nums))
+    b = Array{Int64}(undef,length(nums))
+    for i=1:length(nums)
+    if mod((i+k),length(nums)) ==0 
+        a[length(nums)] = nums[i]
+        continue 
+    else
+        a[mod((i+k),length(nums))] = nums[i]
+    end
+    end
+    b = vcat(nums[k+2:length(nums)] , nums[1:k+1])
+    println(b)
+    return a
+end
+nums = [1,2,3,4,5,6,7]
+k=3
+println(rotate(nums,k))

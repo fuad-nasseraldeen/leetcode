@@ -1,0 +1,28 @@
+%
+function searchInsert(num , target)
+    for i=1:length(num)
+        if num[i] == target
+            return i
+        end
+    end
+    i=1
+    j=length(num)
+    mid = div(j,2)
+    while i<j
+        while target < num[mid] && i<mid
+            #println(mid)
+            mid-=1
+        end
+        while target > num[mid] && mid<j
+            mid+=1
+        end
+    if mid ==j
+       mid+=1
+    end
+    return mid
+    end
+   
+end
+num = [1,3,5,6]
+target = 2
+println(searchInsert(num , target))

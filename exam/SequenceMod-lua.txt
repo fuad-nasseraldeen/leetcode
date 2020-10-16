@@ -1,0 +1,21 @@
+function seqence(seq , arr)
+    temp = {}
+    for i = 1 ,#arr do
+        if arr[i]%3 == 2
+        then
+            temp[i] = 1
+        else
+            temp[i] =0
+        end
+    
+    end
+    a = table.concat(temp,",")
+    print("[",a,"]")
+    for i=1,#temp do
+      print(temp[i])
+    end
+return a
+end
+seq = {5,8,11,14,17,20,23,26,29,32,35,38,41,44,47,50,53,56,59,62,65,68,71,74,77,80,83,86,89,92,96,99}
+arr = {2,3,4,5,6,7,8,23,74,92,26,28,11,80}
+print(seqence(seq , arr))

@@ -1,0 +1,11 @@
+def sockMerchant(n, ar):
+    d = {}
+    temp_pair = 0
+    for sock in ar:
+        if sock not in d:
+            d[sock] = 1
+            print(d)
+        else :
+            d.pop(sock)
+            temp_pair +=1
+    return temp_pair

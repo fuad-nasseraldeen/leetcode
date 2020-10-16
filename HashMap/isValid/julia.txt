@@ -1,0 +1,31 @@
+function sherlock(arr)
+d = Dict{String,Int}()
+sum_num = 0
+arr = split(arr,"")
+println(arr)
+for i in arr
+    check = get(d,i,0)
+    if check ==0
+        d[i] = 1
+    else
+        d[i] += 1
+    end
+end
+#count = zeros(length(values(d)))
+count = 0
+j=1
+for i in values(d)
+    sum_num +=1
+    count +=i
+    j+=1
+    #println(i)
+end
+println(count ," ", sum_num)
+if mod(count,sum_num) <=1
+    return "YES"
+else
+    return "NO"
+end
+end
+arr = "abcdefghhgfedecba"
+println(sherlock(arr))

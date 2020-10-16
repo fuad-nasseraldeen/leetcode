@@ -1,0 +1,46 @@
+"""
+https://leetcode.com/problems/shortest-palindrome/
+
+Given a string s, you are allowed to convert it to a palindrome by adding characters in front of it. Find and return the shortest palindrome you can find by performing this transformation.
+
+Example 1:
+
+Input: "aacecaaa"
+Output: "aaacecaaa"
+
+Example 2:
+
+Input: "abcd"
+Output: "dcbabcd"
+"""
+
+
+
+
+
+
+
+class Solution:
+    def shortestPalindrome(self, s: str) -> str:
+        
+        """
+        
+        Algorithm
+
+    Create the reverse of the original string sss, say rev\text{rev}rev. This is used for comparison to find the largest palindrome segment from the front.
+    Iterate over the variable iii from 0 to the size(s)−1\text{size(s)}-1size(s)−1:
+    
+        If s[0:n−i]==rev[i:]s[0:n-i] == rev[i:]s[0:n−i]==rev[i:] 
+        
+        (i.e. substring of sss from 000 to n−in-in−i is equal to the substring of rev\text{rev}rev from iii to the end of string). This essentially means that that substring from 000 to n−in-in−i is a palindrome, as rev\text{rev}rev is the reverse of sss.
+        Since, we find the larger palindromes first, we can return reverse of largest palindrome + sss as soon as we get it.
+
+"""
+        rev = s[::-1]
+        temp = 0
+        for i in range(len(s)):
+            if s[:len(s)-i] == rev[i:]:
+                temp = i
+                break
+        return rev[0:temp] + s
+        

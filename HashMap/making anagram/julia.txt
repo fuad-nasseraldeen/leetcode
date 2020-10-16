@@ -1,0 +1,30 @@
+function makingAngram(arr1,arr2)
+d1 = Dict{Char , Int}()
+d2 = Dict{Char , Int}()
+count = 0
+for ch in arr1
+    d1[ch] = get(d1,ch,0)+1
+end
+for ch in arr2
+    d2[ch] = get(d2,ch,0) +1
+end
+for letter in arr1
+    if letter in keys(d2) && d2[letter] !=0
+        d2[letter] = get(d2,letter,0) -1
+    else
+        count +=1
+    end
+end
+for letter in arr2
+    if letter in keys(d1) && d1[letter] !=0
+        d1[letter] = get(d1,letter,0) -1
+    else
+        count +=1
+    end
+end
+return count
+end 
+arr1 = "fcrxzwscanmligyxyvym"
+arr2 = "jxwtrhvujlmrpdoqbisbwhmgpmeoke"
+println(makingAngram(arr1,arr2))
+#30

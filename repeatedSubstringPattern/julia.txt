@@ -1,0 +1,22 @@
+
+function repeatedSubstringPattern(arr)
+    for i=1:length(arr)-1
+        for j=2:length(arr)
+            if div(length(arr),length(arr[i:j])) * length(i:j) ==length(arr) && length(i:j) !=length(arr)
+                v = div(length(arr),length(arr[i:j]))
+                a=""
+                for b=1:v
+                    a *=arr[i:j]
+                end
+                if a == arr
+                    println(a)
+                    return true
+                end
+            end
+        end
+    end
+    return false
+end
+arr = "abcabcabcabc"
+println(repeatedSubstringPattern(arr))
+

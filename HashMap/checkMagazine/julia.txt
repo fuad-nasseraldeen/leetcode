@@ -1,0 +1,72 @@
+function checkMagazine(magazine, note)
+d = Dict{String,Int}()
+magazine = split(magazine, " ")
+note = split(note, " ")
+println(magazine)
+println(note)
+for i in magazine
+check = get(d,i,0)
+    if check != 0
+        d[i] +=1
+    else
+        d[i] = get(d,i,0) +1
+    end
+end
+for i in note
+check = get(d,i,0)
+    if check != 0
+        d[i] -=1
+    else
+        return "NO"
+        break
+    end
+end
+
+println(d)
+return "YES"
+end
+magazine = "give me one grand give today night"
+note = "give one grand give today"
+println(checkMagazine(magazine, note))
+
+amazing solution, exactly like the above but with credit
+
+# Complete the checkMagazine function below.
+function checkMagazine(magazine, note)
+    d = Dict{String,Int}()
+    #magazine, note = split(magazine), split(note)
+    #println(magazine)
+    #println(note)
+    for word in magazine
+        d[word] = get(d, word, 0) + 1
+    end
+    for word in note
+        if get(d, word, 0) > 0
+            d[word] -=1
+        else
+            print("No")
+            return
+        end
+    end
+
+    #println(d)
+    print("Yes")
+    return
+end
+
+
+############################################################
+function checkMagazine(magazine, note)
+    mdict = Dict{String, Int}()
+    for mag in magazine        
+        mdict[mag] = get(mdict, mag, 0) + 1        
+    end
+    
+    for mag in note
+        if (mdict[mag] = get(mdict, mag, 0) - 1) == -1
+            return "No"
+        end
+    end
+
+    "Yes"
+end

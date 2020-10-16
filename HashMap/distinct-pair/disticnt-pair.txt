@@ -1,0 +1,32 @@
+public static int sumpairs(Integer[] input , int k){
+     static int input[] = new int[]{1, 5, 2,4,3};
+    HashMap <Integer,Integer> map = new HashMap<>();
+    int count=0;
+     
+    for(int i =0; i<input.length; i++){
+        int complement= k-input[i];
+        int value=input[i];
+        
+        if(map.ContainsKey(complement){
+            int freq = map.get(complement)-1;
+            count++;
+        } if (freq==0){
+            map.remove(complement);
+          }else {
+            map.put(complement, freq);
+        }
+        else {
+            if(map.ContainsKey(value)){
+                map.put(value,map.get(value)+1);
+            }  else {
+                map.put(value,1);
+            }
+        }
+        
+    }
+    return count;
+}
+
+ public static void main(String[] args) {
+        System.out.print("Total pairs " + sumpairs(input , 6));
+ }

@@ -1,0 +1,33 @@
+function lengthOfLastWord(arr)
+    i=length(arr)
+    count = 0 
+    while i>=1 && arr[i] ==' ' #isspace(arr[i])
+        print(arr[i])
+        i -=1
+    end
+    while i>=1 && arr[i] !=' '# !isspace(arr[i])
+        i-=1
+        count +=1
+    end
+    return count
+end
+
+arr = "Hello World"
+println(lengthOfLastWord(arr))
+
+##################################################
+It is worth noting that strings in Julia can use variable-length encoding, 
+which means that 1:length(str) == collect(eachindex(str)) may be false.
+
+For example, when applying your function to string "hello ωrold", 
+the result is a StringIndexError. 
+A generic implementation of your function is:
+
+function lengthOfLastWord(str)
+	i = findlast(isspace, str)
+	if i === nothing
+		length(str)
+	else
+		length(str, nextind(str, i), lastindex(str))
+	end
+end

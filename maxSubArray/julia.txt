@@ -1,0 +1,16 @@
+function maxSubArray(nums)
+maxx = nums[1]
+    for i=1:length(nums)
+        su = nums[i]
+        for j=i+1:length(nums)
+            su +=nums[j]
+            cur = max(su,nums[j])
+            maxx = max(cur,maxx)
+
+        end
+    end
+    return maxx
+end
+
+nums =[-1]
+println(maxSubArray(nums))

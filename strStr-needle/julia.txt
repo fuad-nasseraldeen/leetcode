@@ -1,0 +1,23 @@
+#Implement strStr().
+#Return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
+#Example 1:
+#Input: haystack = "hello", needle = "ll"
+#Output: 2
+#Example 2:
+#Input: haystack = "aaaaa", needle = "bba"
+#Output: -1
+
+function strStr(haystack , needle)
+    n = length(haystack)-length(needle)+1
+    for i=length(needle):n
+        res = haystack[i-length(needle)+1:i]
+        if res == needle
+        println(res)
+            return i-length(needle)+1
+        end
+    end
+    return -1
+end
+haystack = ""#"aaaaa"#"hello"
+needle =   "a"#"bba" #"ll"
+println(strStr(haystack , needle))

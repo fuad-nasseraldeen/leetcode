@@ -1,0 +1,28 @@
+
+import java.io.*; 
+import java.lang.*; 
+import java.lang.String;
+
+
+public class Test {
+    public static String concatAll(String FirstName, String SeconedName){
+     int i=0;
+     String sub = "";
+     for (i=0;i<FirstName.length() && i<SeconedName.length();i++){
+         sub =sub+ String.valueOf(FirstName.charAt(i))+ String.valueOf(SeconedName.charAt(i));
+     }
+     for(;i<FirstName.length();i++){
+          sub += FirstName.charAt(i);
+     }
+        for(;i<SeconedName.length();i++){
+          sub += SeconedName.charAt(i);
+     
+    }
+    return sub;
+}
+ public static void main(String[] args) {
+    String  FirstName = "AhmadKhalaili";
+   String   SeconedName = "FUAD";
+   System.out.print(concatAll(FirstName ,SeconedName));
+}
+}

@@ -1,0 +1,42 @@
+function groupAnagrams(str)
+    d = Dict{Int64,Array{String,1}}()
+
+    for i =1:length(str)
+        count = 0
+        for j=1:length(str[i])
+            count +=Int(str[i][j])
+        end
+        if !haskey(d,count)
+            d[count] = [str[i]]
+            #println(d)
+        else 
+            push!(d[count], str[i])
+        end
+    end
+#println(values(d))
+for i in values(d)
+    println(i)
+end
+   
+end
+str = ["eat", "tea", "tan", "ate", "nat", "bat"]
+println(groupAnagrams(str))
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+function group_anagrams(strings)
+    d = Dict{Int64, Vector{String}}()
+    for str in strings
+        count = sum(Int, collect(str))
+        v = get!(d, count, Vector{String}[])
+        push!(v, str)
+    end
+    d
+end
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+julia> group(s -> String(sort(collect(s))), A)
+3-element Dictionaries.Dictionary{String,Array{String,1}}
+ "aet" │ ["eat", "tea", "ate"]
+ "ant" │ ["tan", "nat"]
+ "abt" │ ["bat"]

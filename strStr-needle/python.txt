@@ -1,0 +1,8 @@
+class Solution:
+    def strStr(self, haystack: str, noodle: str) -> int:
+        if len(noodle) == 0: return 0
+        if len(noodle) >len(haystack): return -1
+        for i in range(len(haystack)-len(noodle)+1):
+            if haystack[i:len(noodle)+i] == noodle:
+                return i
+        return -1

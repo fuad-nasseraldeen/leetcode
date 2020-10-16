@@ -1,0 +1,22 @@
+function reapetedString(a,k)
+n = length(a)
+divv = div(k,n)
+count = 0 
+temp = 0
+for i in a
+    if Int(i) - 97 ==0
+      count +=1
+    end
+end
+modd = mod(k,n)
+for i=1:modd
+    if Int(a[i]) - 97 ==0 
+        temp +=1
+    end
+end
+res = (divv*count)+temp
+return res
+end
+a = "a"
+k = 1000000000000
+println(reapetedString(a,k))

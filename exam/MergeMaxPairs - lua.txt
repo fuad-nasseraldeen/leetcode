@@ -1,0 +1,21 @@
+function MaxPair(a , b)
+    lenA = 0
+ -- for sure that a is the longer one 
+    if #a >= #b then lenA=#a else lenA = #b end
+    if #a < #b then a,b = b,a end
+    res = a
+    for i=1,#b do
+        if a[i] > b[i] then res[i] = a[i] end
+        if a[i] <=b[i] then res[i] = b[i] end
+    end
+    a = table.concat(res," , ")
+    print(a)
+    print("[",a,"]")
+    for i=1,#res do
+        print(res[i])
+    end
+
+end
+a = {3,6,9,24,4,3425,3245,21345,234,2134,1234,12344}
+b = {4,77,1,5,34,3,3,3,364444444}
+print(MaxPair(a,b))

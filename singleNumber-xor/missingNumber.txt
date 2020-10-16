@@ -1,0 +1,22 @@
+"""
+https://leetcode.com/problems/missing-number/solution/
+        missing​=4∧(0∧0)∧(1∧1)∧(2∧3)∧(3∧4)=(4∧4)∧(0∧0)∧(1∧1)∧(3∧3)∧2=0∧0∧0∧0∧2=2​
+        """
+
+
+function missingn(nums)
+len = length(nums)
+a=len
+
+j=0
+for i in nums
+    c = xor(i,j)
+    a = xor(a,c)
+    j+=1
+    
+end
+return a
+end
+nums=[2,3,0]
+println(missingn(nums))
+
